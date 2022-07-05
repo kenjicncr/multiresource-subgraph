@@ -1,0 +1,28 @@
+specVersion: 0.0.4
+description: Vday card subgraph
+repository: https://github.com/kenjicncr/vday-card-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: MultiResource
+    network: moonriver
+    source:
+      address: "0xa90f3fc517d9126976dd59c5efec8de447f7ff7e"
+      abi: abi
+      startBlock: 2105878
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      file: ./src/mapping.ts
+      entities:
+        - MultiResourceNFT
+      abis:
+        - name: abi
+          file: ./abi.json
+      callHandlers:
+        - function: mint(uint256[],uint256,uint256,uint256,uint256)
+          handler: handleMint
+        - function: mint136(uint256[])
+          handler: handle136Mint

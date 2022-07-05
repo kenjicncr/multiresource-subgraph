@@ -1,0 +1,11 @@
+type MultiResourceNFT @entity {
+  id: ID!
+
+  owner: Bytes
+
+  previousOwner: Bytes
+
+  tokenId: BigInt
+
+  posterSet: Int
+}

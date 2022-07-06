@@ -22,13 +22,13 @@ export function handleItemTransferred(event: Transfer): void {
   if (nft === null) {
     nft = new MultiResourceNFT(txHash);
     nft.tokenId = tokenId;
-    nft.id = tokenId.toString();
     nft.previousOwner = originAddress;
     nft.owner = owner;
     nft.save();
   } else {
     nft.previousOwner = originAddress;
     nft.owner = owner;
+    nft.tokenId = tokenId;
     nft.save();
   }
 }

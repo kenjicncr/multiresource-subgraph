@@ -24,5 +24,3 @@ dataSources:
       callHandlers:
         - function: mint(uint256[],uint256,uint256,uint256,uint256)
           handler: handleMint
-        - function: mint136(uint256[])
-          handler: handle136Mint
